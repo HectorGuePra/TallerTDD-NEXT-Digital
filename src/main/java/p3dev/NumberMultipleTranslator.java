@@ -1,15 +1,28 @@
 package p3dev;
 
+import java.util.List;
+
 public class NumberMultipleTranslator {
 
-    public String translate(int number) {
-        if (number == 0) return new OtherCasesTranslator().translate(number);
-        if (number % 15 == 0) return
-            new MultipleOfThreeTranslator().translate(number) +
-                new MultipleOfFiveTranslator().translate(number);
+    private final List<INumberMultipleTranslator> translators;
+    private final INumberMultipleTranslator defaultTranslator;
 
-        if (number % 5 == 0) return new MultipleOfFiveTranslator().translate(number);
-        if (number % 3 == 0) return new MultipleOfThreeTranslator().translate(number);
-        return new OtherCasesTranslator().translate(number);
+    public NumberMultipleTranslator() {
+        this.translators = List.of(
+            new MultipleOfThreeTranslator(),
+            new MultipleOfFiveTranslator()
+        );
+
+        this.defaultTranslator = new OtherCasesTranslator();
+    }
+
+    public String translate(int number) {
+        StringBuilder sb = new StringBuilder();
+
+        for (INumberMultipleTranslator translator : this.translators) {
+            if (translator.applies(number)) sb.append(translator.translate(number));
+        }
+
+        return sb.isEmpty() ? this.defaultTranslator.translate(number) : sb.toString();
     }
 }
