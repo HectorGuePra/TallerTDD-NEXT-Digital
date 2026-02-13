@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class MultipleOfFiveTranslatorTest {
 
     static Stream<Integer> multipleOfFiveProvider() {
-        return Stream.of(3, 6, 789234, -123456);
+        return Stream.of(5, 10, 7892330, -1234565);
     }
 
     @ParameterizedTest

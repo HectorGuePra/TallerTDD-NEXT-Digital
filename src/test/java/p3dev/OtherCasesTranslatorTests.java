@@ -20,7 +20,7 @@ public class OtherCasesTranslatorTests {
             new TestCase(16, "16"),
             new TestCase(17, "17"),
             new TestCase(19, "19"),
-            new TestCase(20, "20"),
+            new TestCase(22, "22"),
             new TestCase(4376, "4376"),
             new TestCase(-4376, "-4376")
         );
