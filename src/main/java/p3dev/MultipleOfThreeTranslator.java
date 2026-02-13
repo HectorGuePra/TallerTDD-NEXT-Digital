@@ -3,7 +3,7 @@ package p3dev;
 public class MultipleOfThreeTranslator implements INumberMultipleTranslator {
     @Override
     public boolean applies(int number) {
-        return false;
+        return number != 0 && number % 3 == 0;
     }
 
     @Override
