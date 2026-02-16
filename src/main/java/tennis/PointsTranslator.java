@@ -10,6 +10,9 @@ public class PointsTranslator {
         if(local==1 && rival==0){
             return "Fifteen-Love";
         }
+        if(local==0 && rival==1){
+            return "Love-Fifteen";
+        }
 
         return result;
     }
