@@ -8,10 +8,13 @@ public class PointsTranslator {
             return SCORES_NAMES[local] + "-" +SCORES_NAMES[rival];
         }
         if(local+rival>=6){
-            if(local==rival){
+            if(local==rival) {
                 return "Deuce";
             }
             if(local > rival){
+                if(local-rival==2){
+                    return "Player 1 wins";
+                }
                 return "Advantage Player 1";
             }
             else{
