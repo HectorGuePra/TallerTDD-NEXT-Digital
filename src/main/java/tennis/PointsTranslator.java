@@ -14,6 +14,9 @@ public class PointsTranslator {
             if(local > rival){
                 return "Advantage Player 1";
             }
+            else{
+                return "Advantage Player 2";
+            }
         }
         if(local==rival){
             return SCORES_NAMES[local] + "-" + "All";
