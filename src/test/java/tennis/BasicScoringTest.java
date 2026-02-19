@@ -41,5 +41,37 @@ public class BasicScoringTest {
 
         assertEquals("Love-Fifteen", result);
     }
+    @Test
+    void testBothPlayersScoreOnce_ShouldBeFifteenAll(){
+        int local = 1;
+        int rival = 1;
+        PointsTranslator translator = new PointsTranslator();
+
+        String result = translator.translate(local,rival);
+
+        assertEquals("Fifteen-All", result);
+    }
+
+    @Test
+    void testPlayerOneScoresTwice_ShouldBeThirtyLove(){
+        int local = 2;
+        int rival = 0;
+        PointsTranslator translator = new PointsTranslator();
+
+        String result = translator.translate(local,rival);
+
+        assertEquals("Thirty-Love", result);
+    }
+
+    @Test
+    void testPlayerTwoScoresTwice_ShouldBeLoveThirty(){
+        int local = 0;
+        int rival = 2;
+        PointsTranslator translator = new PointsTranslator();
+
+        String result = translator.translate(local,rival);
+
+        assertEquals("Love-Thirty", result);
+    }
 
 }

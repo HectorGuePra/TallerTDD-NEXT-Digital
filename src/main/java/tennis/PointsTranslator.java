@@ -13,6 +13,15 @@ public class PointsTranslator {
         if(local==0 && rival==1){
             return "Love-Fifteen";
         }
+        if(local==1 && rival==1){
+            return "Fifteen-All";
+        }
+        if(local==2 && rival==0){
+            return "Thirty-Love";
+        }
+        if(local==0 && rival==2){
+            return "Love-Thirty";
+        }
 
         return result;
     }
