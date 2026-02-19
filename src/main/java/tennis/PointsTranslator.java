@@ -18,6 +18,9 @@ public class PointsTranslator {
                 return "Advantage Player 1";
             }
             else{
+                if(rival-local==2){
+                    return "Player 2 wins";
+                }
                 return "Advantage Player 2";
             }
         }
