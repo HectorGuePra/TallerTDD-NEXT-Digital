@@ -1,36 +1,27 @@
 package tennis;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class PointsTranslator {
+    private final List<ITennisScoreTranslator> translators;
+    private static final String[] NAMES = {"Love", "Fifteen", "Thirty", "Forty"};
 
-    private static final String[] SCORES_NAMES={"Love","Fifteen","Thirty","Forty"};
-    public String translate(int local, int rival){
-        if(local==0 && rival ==0){
-            return SCORES_NAMES[local] + "-" +SCORES_NAMES[rival];
-        }
-        if(local+rival>=6){
-            if(local==rival) {
-                return "Deuce";
-            }
-            if(local > rival){
-                if(local-rival==2){
-                    return "Player 1 wins";
-                }
-                return "Advantage Player 1";
-            }
-            else{
-                if(rival-local==2){
-                    return "Player 2 wins";
-                }
-                return "Advantage Player 2";
+    public PointsTranslator() {
+        this.translators = Arrays.asList(
+                new WinTranslator(),
+                new AdvantageTranslator(),
+                new DeuceTranslator(),
+                new EqualityTranslator()
+        );
+    }
+
+    public String translate(int local, int rival) {
+        for (ITennisScoreTranslator t : translators) {
+            if (t.applies(local, rival)) {
+                return t.translate(local, rival);
             }
         }
-        if(local==rival){
-            return SCORES_NAMES[local] + "-" + "All";
-        }
-
-        else{
-            return SCORES_NAMES[local] + "-" + SCORES_NAMES[rival];
-        }
-
+        return NAMES[local] + "-" + NAMES[rival];
     }
 }
