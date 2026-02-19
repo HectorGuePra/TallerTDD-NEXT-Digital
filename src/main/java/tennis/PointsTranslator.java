@@ -7,6 +7,11 @@ public class PointsTranslator {
         if(local==0 && rival ==0){
             return SCORES_NAMES[local] + "-" +SCORES_NAMES[rival];
         }
+        if(local+rival<=6){
+            if(local==rival){
+                return "Deuce";
+            }
+        }
         if(local==rival){
             return SCORES_NAMES[local] + "-" + "All";
         }
