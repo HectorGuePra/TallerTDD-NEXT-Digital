@@ -74,4 +74,15 @@ public class BasicScoringTest {
         assertEquals("Love-Thirty", result);
     }
 
+    @Test
+    void testPlayerOneScoresThreeTimes_ShouldBeFortyLove(){
+        int local = 3;
+        int rival = 0;
+        PointsTranslator translator = new PointsTranslator();
+
+        String result = translator.translate(local,rival);
+
+        assertEquals("Forty-Love", result);
+    }
+
 }
