@@ -17,4 +17,17 @@ public class DouceAndAdvantageTest {
         assertEquals("Deuce",result);
 
     }
+
+    @Test
+    public void testPlayerOneAdvantageAfterDeuce_ShouldBeAdvantagePlayerOne(){
+        int local = 4;
+        int rival = 3;
+
+        PointsTranslator translator = new PointsTranslator();
+
+        String result = translator.translate(local,rival);
+
+        assertEquals("Advantage Player 1",result);
+    }
+
 }

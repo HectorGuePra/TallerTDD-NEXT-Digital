@@ -7,7 +7,6 @@ import static junit.framework.Assert.assertEquals;
 public class BasicScoringTest {
 
 
-
     @Test
     void shouldReturnLoveLove_OnStart() {
 
