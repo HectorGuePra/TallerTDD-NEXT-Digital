@@ -12,6 +12,7 @@ public class PointsTranslator {
                 new WinTranslator(),
                 new AdvantageTranslator(),
                 new DeuceTranslator(),
+                new LoveLoveTranslator(),
                 new EqualityTranslator()
         );
     }
